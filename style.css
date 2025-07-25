@@ -2,7 +2,7 @@
 	width: 100%;
 	height: 100vh;
 	display: grid;
-	grid-template-rows: 20% 68% 12%;
+	grid-template-rows: 15% 65% 20%;
 	background-size: cover;
 	background-color: rgb(0, 0, 0);
 }
@@ -16,7 +16,7 @@
 	align-items: center;
 }
 .objectPanel img {
-	width: 120%;
+	width: 100%;
 }
 .menuPanel {
 	display: flex;
@@ -29,6 +29,7 @@
 .menuButton {
 	margin-left: 5px;
 	margin-right: 5px;
+	margin-bottom: 40px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -61,7 +62,7 @@
 	width: 100px;
 	height: 20px;
 	border-radius: 4px;
-	background-color: rgb(141, 141, 141);
+	background-color: rgb(75, 84, 85);
 	color: white;
 	font-weight: 400;
 	display: flex;
@@ -79,10 +80,17 @@
 }
 #energyText {
 	z-index: 5;
-	font-size: 20px;
+	font-size: 16px;
+	text-decoration: none;
+	color: #e9e7e0;
+	font-family: MyFont;
+}
+@font-face {
+	font-family: MyFont;
+	src: url(PressStart2P-Regular.ttf);
 }
 .centreScorePanel {
-	height: 25%;
+	height: 7%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -96,7 +104,7 @@
 	text-decoration: none;
 	color: #e9e7e0;
 	font-family: MyFont;
-	font-size: 40px;
+	font-size: 20px;
 	font-weight: 500;
 }
 @font-face {
@@ -110,11 +118,120 @@
 	text-decoration: none;
 	color: #e9e7e0;
 	font-family: MyFont;
-	font-size: 18px;
+	font-size: 15px;
 	font-weight: 100;
 	margin-top: 10px;
 }
 @font-face {
 	font-family: MyFont;
 	src: url(PressStart2P-Regular.ttf);
+}
+.plus {
+	position: absolute;
+	text-decoration: none;
+	color: #ffffff;
+	font-family: MyFont;
+	font-size: 18px;
+	font-weight: 100;
+	animation: moveUp 2s forwards;
+}
+@keyframes moveUp {
+	0% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(-200px);
+		opacity: 0;
+	}
+}
+.bodyAuthor {
+	width: 100%;
+	height: 100vh;
+	display: grid;
+	grid-template-rows: 80% 20%;
+	background-color: rgb(0, 0, 0);
+}
+.AuthorPanel {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+}
+.TextAuthorPanel {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	margin-top: 5px;
+	text-decoration: none;
+	color: #e9e7e0;
+	font-family: MyFont;
+	font-size: 15px;
+	font-weight: 50;
+	height: auto;
+	width: auto;
+	line-height: 30px;
+}
+.AuthorLink {
+	text-decoration: none;
+	color: rgb(107, 134, 134);
+	font-family: MyFont;
+}
+@font-face {
+	font-family: MyFont;
+	src: url(PressStart2P-Regular.ttf);
+}
+.upgradeText {
+	text-decoration: none;
+	color: #e9e7e0;
+	font-size: 15px;
+	font-family: MyFont;
+}
+@font-face {
+	font-family: MyFont;
+	src: url(PressStart2P-Regular.ttf);
+}
+.textCard {
+	text-decoration: none;
+	color: #e9e7e0;
+	font-size: 15px;
+	font-family: MyFont;
+}
+@font-face {
+	font-family: MyFont;
+	src: url(PressStart2P-Regular.ttf);
+}
+.lvlText {
+	text-decoration: none;
+	color: #e9e7e0;
+	font-size: 11px;
+	font-family: MyFont;
+}
+@font-face {
+	font-family: MyFont;
+	src: url(PressStart2P-Regular.ttf);
+}
+.upgradeCards {
+	padding: 20px;
+}
+.card {
+	width: 28%;
+	height: 120px;
+	background-color: rgb(0, 0, 0);
+}
+.containerUpgradeCards {
+	display: flex;
+	justify-content: space-between;
+}
+.imageCard {
+	width: 100%;
+	height: 110px;
+	margin-left: 1%;
+	margin-top: 7%;
+}
+.card:nth-child(1) .imageCard {
+	background-image: url(card1.jpg);
+	background-size: cover;
 }
