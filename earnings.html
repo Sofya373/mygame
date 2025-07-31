@@ -34,7 +34,9 @@
 				<div class="containerUpgradeCards">
 					<div class="card" id="clickFullEnergy">
 						<div class="imageCard">
-							<p class="lvlText">ур. <span id="lvlFullEnergy">0</span></p>
+							<p class="lvlText">
+								ур. <span id="lvlFullEnergy" class="lvlFullEnergy">0</span>
+							</p>
 						</div>
 						<p class="textCard">Помощь</p>
 					</div>
@@ -46,13 +48,24 @@
 					</div>
 					<div class="card" id="clickRestart">
 						<div class="imageCard">
-							<p class="lvlText">ур. <span id="lvlRestart">0</span>/6</p>
+							<p class="lvlText">
+							<p class="lvlText"><span id="lvlRestart" class="lvlFRestart">0</span>/6</p>
+						</p>
 						</div>
 						<p class="textCard">Энергия</p>
 					</div>
 				</div>
 			</div>
-			<div class="upgradeCards"></div>
+			<div class="upgradeCards">
+				<p class="upgradeText">Подношения</p>
+				<div class="passiveContainer">
+					<div class="card cardPassive" data-id="1"></div>
+					<div class="card cardPassive" data-id="2"></div>
+					<div class="card cardPassive" data-id="3"></div>
+					<div class="card cardPassive" data-id="4"></div>
+					<div class="card cardPassive" data-id="5"></div>
+				</div>
+			</div>
 		</div>
 		<div class="menuPanel">
 			<a href="index.html" class="menuText">
@@ -80,6 +93,37 @@
 				</div></a
 			>
 		</div>
+		<dialog id="screenLvlEnergy" class="dialog">
+			<form method="dialog">
+				<button class="closeButton">X</button>
+				<img class="imgDialog" src="pngCardFire.png" />
+				<h2>Помощь</h2>
+				<div class="textContainer">
+					<p>ур. <span class="lvlFullEnergy">0</span></p>
+					<img src="pngcicada.png" />
+					<p>+<span id="countEnergy">100</span></p>
+				</div>
+				<button class="pay" id="payLvlEnergy">
+					<p>Купить за <span id="priceLvlEnergy">300</span></p>
+				</button>
+			</form>
+		</dialog>
+		<dialog id="screenRestart" class="dialog">
+			<form method="dialog">
+				<button class="closeButton">X</button>
+				<img class="imgDialog" src="pngCardCicada.png" />
+				<h2>Усердие</h2>
+				<div class="textContainer">
+					<p><span class="lvlRestart">0</span>/6</p>
+					<img src="pngcicada.png" />
+					<p>Восстановление энергии</p>
+				</div>
+				<button class="pay" id="payLvlRestart">
+					<p>Бесплатно</p>
+				</button>
+			</form>
+		</dialog>
+		<dialog class="dialog" id="screenPassive"></dialog>
 		<script src="script.js"></script>
 	</body>
 </html>
