@@ -4,7 +4,7 @@
 let score = localStorage.getItem("score")
 	? Number(localStorage.getItem("score"))
 	: 0;
-let countClick = 300;
+let countClick = 1;
 let energy = localStorage.getItem("energy")
 	? Number(localStorage.getItem("energy"))
 	: 500;
@@ -243,7 +243,7 @@ function saveData() {
 
 //Функция на загрузку данных на HTMLстраницe
 function dataScreen() {
-	scoreHTML.innerText = score;
+	scoreHTML.innerText = Math.round(score);
 	energyHTML.innerText = energy;
 	fillEnergy();
 	scoreInHourHTML.innerText = scoreInHour;
@@ -271,7 +271,7 @@ function clicker(event) {
 	if (energy >= 1) {
 		score += countClick;
 		energy--;
-		scoreHTML.innerText = score;
+		scoreHTML.innerText = Math.round(score);
 		energyHTML.innerText = energy;
 		fillEnergy();
 
@@ -307,7 +307,36 @@ function regenerateEnergy() {
 		energy++;
 		energyHTML.innerText = energy;
 		fillEnergy();
-		saveData();
 	}
+	score += score / 3600;
+	scoreHTML.innerText = Math.round(score);
+	saveData();
 }
 setInterval(regenerateEnergy, 1000);
+
+//Вызывается при покидании страницы
+window.addEventListener("beforeunload", () => {
+	localStorage.setItem("lastVisit", Date.now());
+});
+
+//Вызывается при загрузке страницы
+window.addEventListener("load", () => {
+	let lastVisit = localStorage.getItem("lastVisit");
+	let nowVisit = Date.now();
+	if (nowVisit - lastVisit > 30 * 1000 && lastVisit) {
+		let hoursAway = (nowVisit - parseInt(lastVisit)) / (1000 * 3600);
+		if (hoursAway > 3) hoursAway = 3;
+
+		//Начисление монет
+		let offlineScore = Math.round(hoursAway * scoreInHour);
+		score += offlineScore;
+		scoreHTML.innerText = score;
+
+		//Начисление энергии
+		let offlineEnergy = Math.round(hoursAway * 3600);
+		energy = Math.min(energy + offlineEnergy, fullEnergy);
+		energyHTML.innerText = energy;
+
+		alert(`За ваше отсутствие заработано ${offlineScore}монет`);
+	}
+});
